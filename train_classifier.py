@@ -35,3 +35,4 @@ def optimize_model(model, param_grid, X_train, y_train):
     print(f"Meilleurs paramètres pour {model.__class__.__name__} : {grid_search.best_params_}")
     print(f"Meilleure score de cross-validation : {grid_search.best_score_:.2f}")
     return grid_search.best_estimator_
+# creating conflict (khalil)
