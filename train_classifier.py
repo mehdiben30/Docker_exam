@@ -83,7 +83,12 @@ if __name__ == "__main__":
 
     print("Choisissez un modèle à optimiser :")
     print(", ".join(models.keys()))
-    model_name = input("Votre choix : ").strip()
+    
+    try: 
+        model_name = input("Votre choix : ")
+    except:
+        model_name = 'SVM'
+    
 
     if model_name in models:
         # Optimiser le modèle
