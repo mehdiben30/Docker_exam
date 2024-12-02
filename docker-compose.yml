@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  classifier:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./output:/app/output  # Mount a volume to save results
+    command: ["python", "train-classifier.py"]
+
+  predictor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./output:/app/output  # Ensure predictor accesses the same volume
+    command: ["python", "predict_classification.py"]
