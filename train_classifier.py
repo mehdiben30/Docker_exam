@@ -11,6 +11,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, classification_report
 import seaborn as sns
 import joblib
+import os
 
 # Générer les données
 def generate_data(n_samples=1000, n_features=20, n_informative=5, n_classes=3, random_state=42):
