@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  training:
+    build:
+      context: .
+    container_name: training_container
+    volumes:
+      - ./output:/app/output
+    command: ["python", "train_classifier.py"]
+
+  prediction:
+    build:
+      context: .
+    container_name: prediction_container
+    depends_on:
+      - training
+    volumes:
+      - ./output:/app/output
+    command: ["python", "predict_classification.py"]
+
+volumes:
+  output:
