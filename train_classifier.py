@@ -41,3 +41,15 @@ def optimize_model(model, param_grid, X_train, y_train):
 # try to create a conflict By Bilal
 
 # conflict resolved ;)
+
+# Entraîner et évaluer le modèle
+def train_and_evaluate(model, X_train, y_train, X_test, y_test):
+    print("\nÉvaluation après optimisation :")
+    model.fit(X_train, y_train)  # Entraînement
+    y_pred = model.predict(X_test)  # Prédictions sur les données de test
+    acc = accuracy_score(y_test, y_pred)  # Calcul de l'accuracy
+    print(f"\nModèle : {model.__class__.__name__}")
+    print(f"Accuracy sur le test : {acc:.2f}")
+    print("\nRapport de classification :")
+    print(classification_report(y_test, y_pred))
+    return model
